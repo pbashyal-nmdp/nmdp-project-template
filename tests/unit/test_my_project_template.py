@@ -27,8 +27,6 @@
 
 import pytest
 
-from my_project_template import my_project_template
-
 
 @pytest.fixture
 def supported_genes():
@@ -36,13 +34,9 @@ def supported_genes():
 
     See more at: https://doc.pytest.org/en/latest/fixture.html
     """
-    # import requests
-
     return ['HLA-A', 'HLA-B', 'HLA-C']
 
 
 def test_content(supported_genes):
     """Sample pytest test function with the pytest fixture as an argument."""
-    # from bs4 import BeautifulSoup
-    # assert 'GitHub' in BeautifulSoup(response.content).title.string
     assert 'HLA-A' in supported_genes
