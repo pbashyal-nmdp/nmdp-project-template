@@ -14,4 +14,4 @@ def index():
 
 
 if __name__ == '__main__':
-    app.run(port=8080, debug=True)  # TODO Set to False when ready for prod
+    app.run(port=8080, debug=True)

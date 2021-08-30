@@ -1,4 +1,5 @@
-PACKAGE_NAME := $(shell basename `pwd`)
+PROJECT_NAME := $(shell basename `pwd`)
+PACKAGE_NAME := my_project_template
 
 .PHONY: clean clean-test clean-pyc clean-build docs help test
 .DEFAULT_GOAL := help
@@ -53,7 +54,10 @@ clean-test: ## remove test and coverage artifacts
 	rm -fr allure_report
 
 lint: ## check style with flake8
-	flake8 my_project_template tests
+    # stop the build if there are Python syntax errors or undefined names \
+	  exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+	flake8 $(PACKAGE_NAME) tests --count --select=E9,F63,F7,F82 --show-source --statistics
+	flake8 $(PACKAGE_NAME) --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
 behave: clean-test ## run the behave tests, generate and serve report
 	- behave -f allure_behave.formatter:AllureFormatter -o allure_report
@@ -97,7 +101,7 @@ install: clean ## install the package to the active Python's site-packages
 	pip install -r requirements-deploy.txt
 
 venv: ## creates a Python3 virtualenv environment in venv
-	python3 -m venv venv --prompt $(PACKAGE_NAME)-venv
+	python3 -m venv venv --prompt $(PROJECT_NAME)-venv
 	@echo "====================================================================="
 	@echo "To activate the new virtual environment, execute the following from your shell"
 	@echo "source venv/bin/activate"
