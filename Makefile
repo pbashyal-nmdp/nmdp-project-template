@@ -1,7 +1,7 @@
 PROJECT_NAME := $(shell basename `pwd`)
 PACKAGE_NAME := my_project_template
 
-.PHONY: clean clean-test clean-pyc clean-build docs help test
+.PHONY: clean clean-test clean-pyc clean-build docs help test test-all
 .DEFAULT_GOAL := help
 
 define BROWSER_PYSCRIPT
@@ -66,7 +66,7 @@ behave: clean-test ## run the behave tests, generate and serve report
 pytest: clean-test ## run tests quickly with the default Python
 	PYTHONPATH=. pytest
 
-test: clean-test ## run tests on every Python version with tox
+test: clean-test ## Run all(BDD and unit) tests
 	PYTHONPATH=. pytest
 	behave
 
