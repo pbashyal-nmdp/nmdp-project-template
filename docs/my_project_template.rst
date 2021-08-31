@@ -9,4 +9,3 @@ my_project_template
     :members:
     :undoc-members:
     :show-inheritance:
-

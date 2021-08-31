@@ -19,4 +19,3 @@ Feature: SLUGs of Class I HLA Alleles
       | HLA-A | HLA-A*13:02 | HLA-A*30:01 | HLA-A*13:02+HLA-A*30:01 |
       | HLA-B | HLA-B*38:01 | HLA-B*07:02 | HLA-B*07:02+HLA-B*38:01 |
       | HLA-C | HLA-C*07:02 | HLA-C*16:01 | HLA-C*07:02+HLA-C*16:01 |
-

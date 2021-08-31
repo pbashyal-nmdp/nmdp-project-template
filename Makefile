@@ -99,6 +99,7 @@ install: clean ## install the package to the active Python's site-packages
 	pip install -r requirements-tests.txt
 	pip install -r requirements-dev.txt
 	pip install -r requirements-deploy.txt
+	pre-commit install
 
 venv: ## creates a Python3 virtualenv environment in venv
 	python3 -m venv venv --prompt $(PROJECT_NAME)-venv
@@ -110,4 +111,3 @@ activate: ## activate a virtual environment. Run `make venv` before activating.
 	@echo "====================================================================="
 	@echo "To activate the new virtual environment, execute the following from your shell"
 	@echo "source venv/bin/activate"
-

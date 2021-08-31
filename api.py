@@ -32,6 +32,3 @@ def slug_match_controller():
     return {
                'message': "No input provided"
            }, 404
-
-
-
