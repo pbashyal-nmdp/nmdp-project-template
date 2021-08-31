@@ -62,12 +62,11 @@ class SLUG:
         @return: True indicating whether 2 SLUGS are equal
         """
         if isinstance(other, SLUG):
-            return self.allele_1 == other.allele_1 and \
-                   self.allele_2 == other.allele_2
+            return self.allele_1 == other.allele_1 and self.allele_2 == other.allele_2
         return False
 
     @classmethod
     def from_glstring(cls, slug):
-        allele_1, allele_2 = slug.split('+')
+        allele_1, allele_2 = slug.split("+")
         slug = SLUG(Allele.from_fullname(allele_1), Allele.from_fullname(allele_2))
         return slug

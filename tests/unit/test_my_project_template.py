@@ -34,9 +34,9 @@ def supported_genes():
 
     See more at: https://doc.pytest.org/en/latest/fixture.html
     """
-    return ['HLA-A', 'HLA-B', 'HLA-C']
+    return ["HLA-A", "HLA-B", "HLA-C"]
 
 
 def test_content(supported_genes):
     """Sample pytest test function with the pytest fixture as an argument."""
-    assert 'HLA-A' in supported_genes
+    assert "HLA-A" in supported_genes

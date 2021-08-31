@@ -22,6 +22,7 @@
 #    > http://www.opensource.org/licenses/lgpl-license.php
 #
 
+
 class Allele:
     """
     A Class I allele is an allele of Locus 'HLA-A', 'HLA-B', 'HLA-C'
@@ -49,26 +50,25 @@ class Allele:
         return False
 
     def __str__(self) -> str:
-        if self.allele.startswith('HLA-'):
+        if self.allele.startswith("HLA-"):
             return self.allele
         return f"{self.locus}*{self.locus}"
 
     @staticmethod
     def validate(locus: str, allele: str):
-        if locus not in ['HLA-A', 'HLA-B', 'HLA-C']:
+        if locus not in ["HLA-A", "HLA-B", "HLA-C"]:
             raise InvalidAllele(f"{locus} is Not a valid locus")
-        if '*' not in allele and ':' not in allele:
+        if "*" not in allele and ":" not in allele:
             raise InvalidAllele("f{allele} is Not a valid allele")
 
     @classmethod
     def from_fullname(cls, allele):
         if not allele.startswith("HLA-"):
             raise InvalidAllele(f"{allele} is not a fully-named allele")
-        locus = allele.split('*')[0]
+        locus = allele.split("*")[0]
         return Allele(locus, allele)
 
 
 class InvalidAllele(Exception):
-
     def __init__(self, message: str) -> None:
         self.message = message
