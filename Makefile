@@ -66,7 +66,7 @@ behave: clean-test ## run the behave tests, generate and serve report
 pytest: clean-test ## run tests quickly with the default Python
 	PYTHONPATH=. pytest
 
-test: clean-test ## Run all(BDD and unit) tests
+test: clean-test ## run all(BDD and unit) tests
 	PYTHONPATH=. pytest
 	behave
 
@@ -91,6 +91,12 @@ dist: clean ## builds source and wheel package
 	python setup.py sdist
 	python setup.py bdist_wheel
 	ls -l dist
+
+docker-build: ## build a docker image for the service
+	docker build -t my-project-template-service:0.0.1 .
+
+docker: docker-build ## build a docker image for the service
+	docker run --name my-project-template -p 8080:8080 my-project-template-service:0.0.1
 
 install: clean ## install the package to the active Python's site-packages
 	pip install --upgrade pip
